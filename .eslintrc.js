@@ -25,6 +25,8 @@ module.exports = {
     '@typescript-eslint/no-empty-function': WARNING,
     'no-unused-vars': WARNING,
     'no-debugger': WARNING,
+    'react-hooks/rules-of-hooks': ERROR,
+    'react-hooks/exhaustive-deps': ERROR,
   },
   settings: {
     react: {

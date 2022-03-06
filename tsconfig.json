@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["./env"],
+    "types": ["@types/node", "vite/client"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
