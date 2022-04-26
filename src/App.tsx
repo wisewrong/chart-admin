@@ -4,7 +4,7 @@ import { BASE_URL } from '@/constants';
 import BasicLayout from '@/layout/basic-layout';
 import NotFound from '@/pages/404';
 import Login from '@/pages/login';
-import HomePage from '@/pages/home';
+import HomePage from '@/pages/overview';
 import ChartOverview from '@/pages/chart';
 import FormOverview from '@/pages/form';
 

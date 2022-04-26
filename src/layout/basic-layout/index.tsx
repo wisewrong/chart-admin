@@ -1,15 +1,18 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
-import SiderMenu from './sider';
+import Sider from './sider';
+import Header from './header';
+import './index.less';
 
 const { Content } = Layout;
 
 const BasicLayout: React.FC = () => {
   return (
-    <Layout>
-      <SiderMenu />
+    <Layout className="basic-layout">
+      <Header />
       <Layout>
+        <Sider />
         <Content>
           <Outlet />
         </Content>

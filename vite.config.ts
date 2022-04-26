@@ -1,6 +1,12 @@
-import path from 'path';
 import { defineConfig } from 'vite';
+import path from 'path';
 import react from '@vitejs/plugin-react';
+
+function resolve(p: string) {
+  return path.resolve(__dirname, p);
+}
+
+const STYLE_VAR_PATH = resolve('src/styles/themes/default.less');
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +18,15 @@ export default defineConfig({
   },
   server: {
     port: 8090,
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        modifyVars: {
+          hack: `true; @import (reference) "${STYLE_VAR_PATH}";`,
+        },
+      },
+    },
   },
   build: {
     cssTarget: 'chrome61',

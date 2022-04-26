@@ -6,24 +6,32 @@ const { Sider } = Layout;
 const list: {
   label: string;
   key: string;
+  href: string;
 }[] = [
+  {
+    label: 'Overview',
+    key: 'overview',
+    href: '/',
+  },
   {
     label: 'Chart',
     key: 'chart',
+    href: '/chart',
   },
   {
     label: 'Form',
     key: 'form',
+    href: '/form',
   },
 ];
 
-const SiderMenu: React.FC = () => {
+const BasicLayoutSider: React.FC = () => {
   return (
     <Sider>
       <Menu>
         {list.map((x) => (
           <Menu.Item key={x.key}>
-            <Link to={`/${x.key}`}>{x.label}</Link>
+            <Link to={x.href}>{x.label}</Link>
           </Menu.Item>
         ))}
       </Menu>
@@ -31,4 +39,4 @@ const SiderMenu: React.FC = () => {
   );
 };
 
-export default SiderMenu;
+export default BasicLayoutSider;
