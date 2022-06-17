@@ -1,0 +1,34 @@
+@icon-width: 16px;
+
+.basic-layout-header {
+  position: relative;
+
+  .color-picker {
+    position: absolute;
+    top: -@icon-width;
+    left: -@icon-width;
+  }
+}
+
+.color-picker {
+  border: @icon-width solid transparent;
+  border-right-color: #fff;
+  width: 0;
+  height: 0;
+  transform: rotateZ(45deg);
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.52);
+}
+
+.color-picker-overlay {
+  .ant-popover-inner {
+    box-shadow: none;
+    padding: 0 12px;
+    background: none;
+  }
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+  .ant-popover-arrow {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { SketchPicker } from 'react-color';
 import { ConfigProvider, Popover } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import './index.less';
 
 const ColorPicker: React.FC = () => {
   const [primaryColor, setPrimaryColor] = useState();
@@ -19,10 +19,13 @@ const ColorPicker: React.FC = () => {
   const picker = <SketchPicker color={primaryColor} onChange={onPrimaryColorChange} />;
 
   return (
-    <Popover trigger="click" placement="bottom" content={picker}>
-      <div className="color-picker">
-        <DownOutlined />
-      </div>
+    <Popover
+      trigger="hover"
+      placement="bottom"
+      content={picker}
+      overlayClassName="color-picker-overlay"
+    >
+      <div className="color-picker cursor-pointer" />
     </Popover>
   );
 };
