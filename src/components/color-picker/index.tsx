@@ -4,7 +4,7 @@ import { ConfigProvider, Popover } from 'antd';
 import './index.less';
 
 const ColorPicker: React.FC = () => {
-  const [primaryColor, setPrimaryColor] = useState();
+  const [primaryColor, setPrimaryColor] = useState('#1890ff');
 
   // 切换主题色
   const onPrimaryColorChange = useCallback(({ hex }) => {
@@ -16,7 +16,9 @@ const ColorPicker: React.FC = () => {
     });
   }, []);
 
-  const picker = <SketchPicker color={primaryColor} onChange={onPrimaryColorChange} />;
+  const picker = (
+    <SketchPicker color={primaryColor} onChange={onPrimaryColorChange} />
+  );
 
   return (
     <Popover

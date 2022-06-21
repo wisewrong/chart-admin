@@ -1,0 +1,51 @@
+@border-color: #e2e6e9;
+
+.user-info {
+  .ant-popover-inner-content {
+    padding: 0;
+    width: 160px;
+  }
+
+  &-overview {
+    padding: 8px 12px;
+    border-bottom: 1px solid @border-color;
+    color: @text-color;
+    text-align: center;
+
+    .title {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .sub-title {
+      color: fade(@text-color, 60%);
+      font-size: 12px;
+    }
+  }
+
+  &-menu {
+    color: @text-color;
+    padding: 4px 0;
+
+    .item {
+      padding: 8px 16px;
+      gap: 12px;
+      transition: @transition-config;
+
+      &:hover {
+        background: fade(@text-color, 6%);
+        color: @primary-color;
+      }
+    }
+  }
+}
+
+.lang-menu {
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+  .ant-menu {
+    border: none;
+    color: @text-color;
+  }
+}
