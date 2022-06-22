@@ -2,7 +2,6 @@ import React from 'react';
 import { Layout, Space } from 'antd';
 import ColorPicker from '@/components/color-picker';
 import UserInfo from './user-info';
-import './index.less';
 
 const { Header } = Layout;
 

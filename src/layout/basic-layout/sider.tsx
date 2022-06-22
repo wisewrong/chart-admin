@@ -27,7 +27,7 @@ const list: {
 
 const BasicLayoutSider: React.FC = () => {
   return (
-    <Sider>
+    <Sider className="basic-layout-sider">
       <Menu>
         {list.map((x) => (
           <Menu.Item key={x.key}>
