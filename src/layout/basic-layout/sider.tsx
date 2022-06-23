@@ -9,20 +9,15 @@ const list: {
   href: string;
 }[] = [
   {
-    label: 'Overview',
-    key: 'overview',
-    href: '/',
-  },
-  {
     label: 'Chart',
     key: 'chart',
     href: '/chart',
   },
-  {
-    label: 'Form',
-    key: 'form',
-    href: '/form',
-  },
+  // {
+  //   label: 'Form',
+  //   key: 'form',
+  //   href: '/form',
+  // },
 ];
 
 const BasicLayoutSider: React.FC = () => {
