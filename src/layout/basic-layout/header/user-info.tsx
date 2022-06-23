@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Avatar, Popover, Menu } from 'antd';
+import { useIntl } from 'react-intl';
 import {
   UserOutlined,
   GlobalOutlined,
   LockOutlined,
   PoweroffOutlined,
 } from '@ant-design/icons';
+import useChangeLocale, {
+  getLangs,
+  Locales,
+  getDefaultLocale,
+} from '@/hooks/useChangeLocale';
 
-const langs = [
-  {
-    key: '1',
-    label: '中文',
-  },
-  {
-    key: '2',
-    label: '英文',
-  },
-];
+const langs = getLangs();
 
 const UserInfo: React.FC = () => {
-  const langMenu = <Menu items={langs} />;
+  const { formatMessage } = useIntl();
+  const changeLocale = useChangeLocale();
+
+  // 切换语言
+  const handleChange = useCallback(
+    (v) => {
+      const lang = v.key as Locales;
+      changeLocale(lang);
+    },
+    [changeLocale],
+  );
+
+  // 当前语种
+  const currentLocal = useMemo(getDefaultLocale, []);
+
+  // 可切换的语种
+  const langMenu = (
+    <Menu items={langs} onClick={handleChange} selectedKeys={[currentLocal]} />
+  );
 
   const overlay = (
     <>
@@ -38,16 +53,16 @@ const UserInfo: React.FC = () => {
         >
           <div className="item flex flex-align-center cursor-pointer">
             <GlobalOutlined />
-            <span>切换语言</span>
+            <span>{formatMessage({ id: 'common.user.language' })}</span>
           </div>
         </Popover>
         <div className="item flex flex-align-center cursor-pointer">
           <LockOutlined />
-          <span>修改密码</span>
+          <span>{formatMessage({ id: 'common.user.password.edit' })}</span>
         </div>
         <div className="item flex flex-align-center cursor-pointer">
           <PoweroffOutlined />
-          <span>退出登录</span>
+          <span>{formatMessage({ id: 'common.user.signout' })}</span>
         </div>
       </div>
     </>
