@@ -18,8 +18,8 @@ module.exports = {
     },
   },
   env: {
-    'browser': true,
-    'node': true,
+    browser: true,
+    node: true,
   },
   rules: {
     '@typescript-eslint/no-empty-function': WARNING,
