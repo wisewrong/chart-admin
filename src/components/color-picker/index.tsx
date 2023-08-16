@@ -1,35 +1,34 @@
-import React, { useCallback, useState } from 'react';
-import { SketchPicker } from 'react-color';
-import { ConfigProvider, Popover } from 'antd';
+import React, { useCallback } from 'react';
+import { ColorPicker as AntColorPicker } from 'antd';
+import type { Color } from 'antd/es/color-picker';
+import { useAppContext, Actions } from '@/contexts/AppContext';
 import './index.less';
 
 const ColorPicker: React.FC = () => {
-  const [primaryColor, setPrimaryColor] = useState('#1890ff');
+  const { state, dispatch } = useAppContext();
 
   // 切换主题色
-  const onPrimaryColorChange = useCallback(({ hex }) => {
-    setPrimaryColor(hex);
-    ConfigProvider.config({
-      theme: {
-        primaryColor: hex,
-      },
-    });
-  }, []);
-
-  const picker = (
-    <SketchPicker color={primaryColor} onChange={onPrimaryColorChange} />
+  const onPrimaryColorChange = useCallback(
+    (color: Color) => {
+      console.log('color', color.toHexString());
+      dispatch({
+        type: Actions.SET_PRIMARY_COLOR,
+        payload: color.toHexString(),
+      });
+    },
+    [dispatch],
   );
 
   return (
-    <Popover
-      trigger="hover"
-      placement="bottom"
-      content={picker}
-      overlayClassName="color-picker-overlay"
+    <AntColorPicker
+      value={state.theme?.colorPrimary}
+      onChangeComplete={onPrimaryColorChange}
+      trigger="click"
+      placement="bottomRight"
     >
       <div className="color-picker cursor-pointer" />
-    </Popover>
+    </AntColorPicker>
   );
 };
 
-export default ColorPicker;
+export default React.memo(ColorPicker);

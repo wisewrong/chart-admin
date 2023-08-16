@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Locale as AntdLocale } from 'antd/lib/locale-provider';
+import { Locale as AntdLocale } from 'antd/es/locale';
 // 项目内的语言包
 import zhCN from '@/locales/zh_CN.json';
 import enUS from '@/locales/en_US.json';

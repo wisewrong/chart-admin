@@ -1,22 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { IntlProvider } from 'react-intl';
-import { ConfigProvider } from 'antd';
-import { getDefaultLocale, getLocaleMessage } from '@/hooks/useChangeLocale';
+import ReactDOM from 'react-dom/client';
+import { AppContextProvider } from '@/contexts/AppContext';
 import App from './app';
 import './global.less';
 
-// 获取当前语种及语言包
-const locale = getDefaultLocale();
-const localeMessage = getLocaleMessage(locale);
+const root = document.getElementById('root') as Element;
 
-ReactDOM.render(
+ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <IntlProvider locale={locale} messages={localeMessage.local}>
-      <ConfigProvider locale={localeMessage.antd}>
-        <App />
-      </ConfigProvider>
-    </IntlProvider>
+    <AppContextProvider>
+      <App />
+    </AppContextProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
 );
